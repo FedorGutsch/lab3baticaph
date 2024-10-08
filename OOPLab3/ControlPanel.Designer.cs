@@ -59,6 +59,7 @@
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = false;
             button1.MouseDown += button1_MouseDown;
+            button1.MouseLeave += button1_MouseLeave;
             button1.MouseUp += button1_MouseUp;
             // 
             // button2
@@ -69,6 +70,10 @@
             button2.Size = new Size(42, 36);
             button2.TabIndex = 2;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            button2.MouseDown += button2_MouseDown;
+            button2.MouseLeave += button2_MouseLeave;
+            button2.MouseUp += button2_MouseUp;
             // 
             // button3
             // 
@@ -78,6 +83,10 @@
             button3.Size = new Size(42, 36);
             button3.TabIndex = 3;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            button3.MouseDown += button3_MouseDown;
+            button3.MouseLeave += button3_MouseLeave;
+            button3.MouseUp += button3_MouseUp;
             // 
             // button4
             // 
@@ -87,6 +96,9 @@
             button4.Size = new Size(42, 36);
             button4.TabIndex = 4;
             button4.UseVisualStyleBackColor = false;
+            button4.MouseDown += button4_MouseDown;
+            button4.MouseLeave += button4_MouseLeave;
+            button4.MouseUp += button4_MouseUp;
             // 
             // button5
             // 

@@ -6,6 +6,9 @@ namespace OOPLab3
         public Form1()
         {
             InitializeComponent();
+            submarine1.controlPanel = controlPanel1;
+            controlPanel1.submarine = submarine1;
+            submarine1.Vmax = 300;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -20,9 +23,6 @@ namespace OOPLab3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Submarine submarine = new Submarine();
-            Point point = new Point(500, 500);
-            submarine.Location = point;
 
         }
     }
