@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OOPLab3
 {
-    public partial class Submarine : UserControl
+    public partial class Submarine : UserControl, INotifyPropertyChanged
     {
         public Submarine()
         {
@@ -29,12 +30,20 @@ namespace OOPLab3
         public uint Vmax
         {
             get { return vmax; }
-            set { vmax = value; }
+            set { vmax = value; OnPropertyChanged(); }
         }
 
         public int Deep
         {
             get { return this.Top; }
+            set { deep = value; OnPropertyChanged(); }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         public uint Speed

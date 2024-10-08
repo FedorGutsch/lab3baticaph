@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            controlPanel1 = new ControlPanel();
             button1 = new Button();
+            controlPanel1 = new ControlPanel();
             submarine1 = new Submarine();
             SuspendLayout();
-            // 
-            // controlPanel1
-            // 
-            controlPanel1.Location = new Point(825, 181);
-            controlPanel1.Name = "controlPanel1";
-            controlPanel1.Size = new Size(527, 421);
-            controlPanel1.TabIndex = 0;
-            controlPanel1.Load += controlPanel1_Load;
             // 
             // button1
             // 
@@ -53,11 +45,20 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // controlPanel1
+            // 
+            controlPanel1.Location = new Point(825, 181);
+            controlPanel1.Name = "controlPanel1";
+            controlPanel1.Size = new Size(527, 421);
+            controlPanel1.TabIndex = 0;
+            controlPanel1.Load += controlPanel1_Load;
+            // 
             // submarine1
             // 
-            submarine1.Location = new Point(234, 156);
+            submarine1.Location = new Point(215, 282);
             submarine1.Name = "submarine1";
             submarine1.Size = new Size(346, 193);
+            submarine1.Speed = 1U;
             submarine1.TabIndex = 2;
             submarine1.Vmax = 0U;
             // 
@@ -77,9 +78,8 @@
         }
 
         #endregion
-
-        private ControlPanel controlPanel1;
         private Button button1;
+        private ControlPanel controlPanel1;
         private Submarine submarine1;
     }
 }
