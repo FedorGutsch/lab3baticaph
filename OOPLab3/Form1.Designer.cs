@@ -30,6 +30,7 @@
         {
             controlPanel1 = new ControlPanel();
             button1 = new Button();
+            submarine1 = new Submarine();
             SuspendLayout();
             // 
             // controlPanel1
@@ -52,12 +53,21 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // submarine1
+            // 
+            submarine1.Location = new Point(234, 156);
+            submarine1.Name = "submarine1";
+            submarine1.Size = new Size(346, 193);
+            submarine1.TabIndex = 2;
+            submarine1.Vmax = 0U;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
             ClientSize = new Size(1364, 614);
+            Controls.Add(submarine1);
             Controls.Add(button1);
             Controls.Add(controlPanel1);
             Name = "Form1";
@@ -70,5 +80,6 @@
 
         private ControlPanel controlPanel1;
         private Button button1;
+        private Submarine submarine1;
     }
 }
