@@ -67,18 +67,26 @@ namespace OOPLab3
                 {
                     speed++;
                 }
-                if (this.Top > 100)
+                if (this.Bottom < 615)
                 {
                     this.Top += 1 * (int)speed;
                 }
             }
             else if (Lefti)
             {
-                this.Left += 1;
+                if (speed < vmax)
+                {
+                    speed++;
+                }
+                this.Left += 1 * (int)speed;
             }
             else if (Right)
             {
-                this.Left -= 1;
+                if (speed < vmax)
+                {
+                    speed++;
+                }
+                this.Left -= 1 * (int)speed;
             }
             else if (!Up && !Down && !Lefti && !Right)
             {

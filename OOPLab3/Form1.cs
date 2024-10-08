@@ -23,7 +23,10 @@ namespace OOPLab3
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Submarine submarine = new Submarine();
+            submarine.Vmax = 300;
+            submarine.controlPanel = controlPanel1;
+            Controls.Add(submarine);
         }
     }
 }
