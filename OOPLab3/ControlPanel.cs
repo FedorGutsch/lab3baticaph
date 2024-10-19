@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OOPLab3
 {
@@ -15,13 +16,15 @@ namespace OOPLab3
         public ControlPanel()
         {
             InitializeComponent();
+            submarine = new Submarine();
         }
 
         public Submarine submarine;
 
         private void ControlPanel_Load(object sender, EventArgs e)
         {
-
+            //label1.DataBindings.Add("Text", this.submarine, "Speed");
+            //label2.DataBindings.Add("Text", this.submarine, "Deep");
         }
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
@@ -104,6 +107,16 @@ namespace OOPLab3
         {
             submarine.Down = false;
             button4.BackColor = Color.Blue;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            submarine.Vmax += 5;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            submarine.Vmax -= 5;
         }
     }
 }

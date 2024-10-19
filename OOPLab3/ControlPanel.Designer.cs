@@ -42,6 +42,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = SystemColors.WindowFrame;
             pictureBox1.BackgroundImage = Properties.Resources.plc_factory_cpu_psu_controller_512;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(0, 0);
@@ -108,6 +109,7 @@
             button5.Size = new Size(42, 36);
             button5.TabIndex = 5;
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -117,24 +119,25 @@
             button6.Size = new Size(42, 36);
             button6.TabIndex = 6;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(82, 191);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(59, 15);
             label1.TabIndex = 7;
-            label1.Text = "label1";
+            label1.Text = "Скорость";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(82, 220);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(53, 15);
             label2.TabIndex = 8;
-            label2.Text = "label2";
+            label2.Text = "Глубина";
             // 
             // ControlPanel
             // 
@@ -166,7 +169,7 @@
         private Button button4;
         private Button button5;
         private Button button6;
-        private Label label1;
-        private Label label2;
+        public Label label1;
+        public Label label2;
     }
 }

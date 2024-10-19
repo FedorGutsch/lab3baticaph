@@ -29,21 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources.submarine_PNG57;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(343, 190);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // timer1
             // 
@@ -55,16 +42,18 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pictureBox1);
+            BackColor = Color.Transparent;
+            BackgroundImage = Properties.Resources.submarine_PNG57;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            Cursor = Cursors.Default;
+            DoubleBuffered = true;
             Name = "Submarine";
             Size = new Size(346, 193);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Click += Submarine_Click;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
     }
 }

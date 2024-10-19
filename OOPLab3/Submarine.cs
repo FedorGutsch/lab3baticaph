@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace OOPLab3
             InitializeComponent();
         }
 
-        private uint vmax = 300;
+        private uint vmax = 10;
         private uint speed = 1;
         private int deep;
         public bool Right;
@@ -49,12 +50,16 @@ namespace OOPLab3
         public uint Speed
         {
             get { return speed; }
-            set { speed = value; }
+            set { speed = value; OnPropertyChanged(); }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            controlPanel.submarine = this;
+            //controlPanel.label1.DataBindings.Clear();
+            //controlPanel.label2.DataBindings.Clear();
+            //controlPanel.submarine = this;
+            //controlPanel.label1.DataBindings.Add("Text", controlPanel.submarine, "Speed");
+            //controlPanel.label2.DataBindings.Add("Text", controlPanel.submarine, "Deep");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -63,44 +68,54 @@ namespace OOPLab3
             {
                 if (speed < vmax)
                 {
-                    speed++;
+                    Speed++;
                 }
                 if (this.Top > -100)
                 {
-                    this.Top -= 1 * (int)speed;
+                    this.Top -= 1 * (int)Speed;
                 }
             }
             else if (Down)
             {
                 if (speed < vmax)
                 {
-                    speed++;
+                    Speed++;
                 }
                 if (this.Bottom < 615)
                 {
-                    this.Top += 1 * (int)speed;
+                    this.Top += 1 * (int)Speed;
                 }
             }
             else if (Lefti)
             {
                 if (speed < vmax)
                 {
-                    speed++;
+                    Speed++;
                 }
-                this.Left += 1 * (int)speed;
+                this.Left += 1 * (int)Speed;
             }
             else if (Right)
             {
                 if (speed < vmax)
                 {
-                    speed++;
+                    Speed++;
                 }
-                this.Left -= 1 * (int)speed;
+                this.Left -= 1 * (int)Speed;
             }
             else if (!Up && !Down && !Lefti && !Right)
             {
-                speed = 1;
+                speed = 0;
+                Speed = 0;
             }
+        }
+
+        private void Submarine_Click(object sender, EventArgs e)
+        {
+            controlPanel.label1.DataBindings.Clear();
+            controlPanel.label2.DataBindings.Clear();
+            controlPanel.submarine = this;
+            controlPanel.label1.DataBindings.Add("Text", controlPanel.submarine, "Speed");
+            controlPanel.label2.DataBindings.Add("Text", controlPanel.submarine, "Deep");
         }
     }
 }
