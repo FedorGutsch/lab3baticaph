@@ -19,7 +19,7 @@ namespace OOPLab3
             InitializeComponent();
         }
 
-        private uint vmax = 10;
+        private uint vmax = 3;
         private uint speed = 1;
         private int deep;
         public bool Right;
@@ -53,14 +53,10 @@ namespace OOPLab3
             set { speed = value; OnPropertyChanged(); }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            //controlPanel.label1.DataBindings.Clear();
-            //controlPanel.label2.DataBindings.Clear();
-            //controlPanel.submarine = this;
-            //controlPanel.label1.DataBindings.Add("Text", controlPanel.submarine, "Speed");
-            //controlPanel.label2.DataBindings.Add("Text", controlPanel.submarine, "Deep");
-        }
+        bool lastIsUp = false;
+        bool lastIsDown = false;
+        bool lastIsRight = false;
+        bool lastIsLeft = false;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -72,6 +68,10 @@ namespace OOPLab3
                 }
                 if (this.Top > -100)
                 {
+                    lastIsUp = true;
+                    lastIsDown = false;
+                    lastIsLeft = false;
+                    lastIsRight = false;
                     this.Top -= 1 * (int)Speed;
                 }
             }
@@ -81,8 +81,12 @@ namespace OOPLab3
                 {
                     Speed++;
                 }
-                if (this.Bottom < 615)
+                if (this.Bottom < this.ParentForm.Height)
                 {
+                    lastIsUp = false;
+                    lastIsDown = true;
+                    lastIsLeft = false;
+                    lastIsRight = false;
                     this.Top += 1 * (int)Speed;
                 }
             }
@@ -92,7 +96,14 @@ namespace OOPLab3
                 {
                     Speed++;
                 }
-                this.Left += 1 * (int)Speed;
+                if (this.Left > 0)
+                {
+                    lastIsUp = false;
+                    lastIsDown = false;
+                    lastIsLeft = true;
+                    lastIsRight = false;
+                    this.Left -= 1 * (int)Speed;
+                }
             }
             else if (Right)
             {
@@ -100,16 +111,54 @@ namespace OOPLab3
                 {
                     Speed++;
                 }
-                this.Left -= 1 * (int)Speed;
+                if (this.Left < this.ParentForm.Width - this.Width)
+                {
+                    lastIsUp = false;
+                    lastIsDown = false;
+                    lastIsLeft = false;
+                    lastIsRight = true;
+                    this.Left += 1 * (int)Speed;
+                }
             }
             else if (!Up && !Down && !Lefti && !Right)
             {
-                speed = 0;
-                Speed = 0;
+                if (lastIsUp == true)
+                {
+                    if (this.Top > -100)
+                    {
+                        this.Top -= 1 * (int)Speed;
+                    }
+                }
+                else if (lastIsDown == true)
+                {
+                    if (this.Bottom < this.ParentForm.Height)
+                    {
+                        this.Top += 1 * (int)Speed;
+                    }
+                }
+                else if (lastIsLeft == true)
+                {
+                    if (this.Left > 0)
+                    {
+                        this.Left -= 1 * (int)Speed;
+                    }
+                }
+                else if (lastIsRight == true)
+                {
+                    if (this.Left < this.ParentForm.Width - this.Width)
+                    {
+                        this.Left += 1 * (int)Speed;
+                    }
+                }
             }
         }
 
         private void Submarine_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             controlPanel.label1.DataBindings.Clear();
             controlPanel.label2.DataBindings.Clear();

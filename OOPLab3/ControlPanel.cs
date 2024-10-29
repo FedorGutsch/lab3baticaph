@@ -23,8 +23,7 @@ namespace OOPLab3
 
         private void ControlPanel_Load(object sender, EventArgs e)
         {
-            //label1.DataBindings.Add("Text", this.submarine, "Speed");
-            //label2.DataBindings.Add("Text", this.submarine, "Deep");
+
         }
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
@@ -47,37 +46,37 @@ namespace OOPLab3
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
-            submarine.Lefti = true;
+            submarine.Right = true;
             button2.BackColor = Color.Yellow;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            submarine.Lefti = false;
+            submarine.Right = false;
             button2.BackColor = Color.Blue;
         }
 
         private void button2_MouseUp(object sender, MouseEventArgs e)
         {
-            submarine.Lefti = false;
+            submarine.Right = false;
             button2.BackColor = Color.Blue;
         }
 
         private void button3_MouseDown(object sender, MouseEventArgs e)
         {
-            submarine.Right = true;
+            submarine.Lefti = true;
             button3.BackColor = Color.Yellow;
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
-            submarine.Right = false;
+            submarine.Lefti = false;
             button3.BackColor = Color.Blue;
         }
 
         private void button3_MouseUp(object sender, MouseEventArgs e)
         {
-            submarine.Right = false;
+            submarine.Lefti = false;
             button3.BackColor = Color.Blue;
         }
 
@@ -111,12 +110,16 @@ namespace OOPLab3
 
         private void button5_Click(object sender, EventArgs e)
         {
-            submarine.Vmax += 5;
+            submarine.Vmax += 1;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            submarine.Vmax -= 5;
+            if (submarine.Vmax > 0)
+            {
+                submarine.Speed -= 1;
+                submarine.Vmax -= 1;
+            }
         }
     }
 }
