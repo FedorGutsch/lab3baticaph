@@ -16,7 +16,7 @@ namespace OOPLab3
         public ControlPanel()
         {
             InitializeComponent();
-            submarine = new Submarine();
+            submarine = new Submarine(this);
         }
 
         public Submarine submarine;

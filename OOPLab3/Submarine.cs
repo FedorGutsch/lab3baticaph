@@ -14,9 +14,10 @@ namespace OOPLab3
 {
     public partial class Submarine : UserControl, INotifyPropertyChanged
     {
-        public Submarine()
+        public Submarine(ControlPanel ControlPanel)
         {
             InitializeComponent();
+            controlPanel = ControlPanel;
         }
 
         private uint vmax = 3;
@@ -36,7 +37,7 @@ namespace OOPLab3
 
         public int Deep
         {
-            get { return this.Top; }
+            get { return deep; }
             set { deep = value; OnPropertyChanged(); }
         }
 
@@ -73,6 +74,7 @@ namespace OOPLab3
                     lastIsLeft = false;
                     lastIsRight = false;
                     this.Top -= 1 * (int)Speed;
+                    Deep = this.Top;
                 }
             }
             else if (Down)
@@ -88,6 +90,7 @@ namespace OOPLab3
                     lastIsLeft = false;
                     lastIsRight = false;
                     this.Top += 1 * (int)Speed;
+                    Deep = this.Top;
                 }
             }
             else if (Lefti)
@@ -127,6 +130,7 @@ namespace OOPLab3
                     if (this.Top > -100)
                     {
                         this.Top -= 1 * (int)Speed;
+                        Deep = this.Top;
                     }
                 }
                 else if (lastIsDown == true)
@@ -134,6 +138,7 @@ namespace OOPLab3
                     if (this.Bottom < this.ParentForm.Height)
                     {
                         this.Top += 1 * (int)Speed;
+                        Deep = this.Top;
                     }
                 }
                 else if (lastIsLeft == true)
@@ -163,8 +168,8 @@ namespace OOPLab3
             controlPanel.label1.DataBindings.Clear();
             controlPanel.label2.DataBindings.Clear();
             controlPanel.submarine = this;
-            controlPanel.label1.DataBindings.Add("Text", controlPanel.submarine, "Speed");
-            controlPanel.label2.DataBindings.Add("Text", controlPanel.submarine, "Deep");
+            controlPanel.label1.DataBindings.Add("Text", this, "Speed");
+            controlPanel.label2.DataBindings.Add("Text", this, "Deep");
         }
     }
 }

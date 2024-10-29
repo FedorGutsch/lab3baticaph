@@ -60,8 +60,10 @@
             ClientSize = new Size(1364, 614);
             Controls.Add(button1);
             Controls.Add(controlPanel1);
+            MaximumSize = new Size(1380, 653);
+            MinimumSize = new Size(1380, 653);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Something Floatable";
             Load += Form1_Load;
             ResumeLayout(false);
         }
